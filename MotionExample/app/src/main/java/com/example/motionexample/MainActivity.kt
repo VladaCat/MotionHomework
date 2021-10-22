@@ -29,6 +29,16 @@ class MainActivity : AppCompatActivity() {
             val drawingIntent = Intent(this, HelloDrawer::class.java)
             startActivity(drawingIntent)
         }
+
+        binding.startMediaButton.setOnClickListener {
+            val startMediaIntent = Intent(this, MediaCatService::class.java)
+            startService(startMediaIntent)
+        }
+
+        binding.stopMediaButton.setOnClickListener {
+            val stopMediaIntent = Intent(this, MediaCatService::class.java)
+            stopService(stopMediaIntent)
+        }
     }
 
     fun click(v: View) {

@@ -2,7 +2,6 @@ package com.example.motionexample
 
 import android.content.Intent
 
-import android.R
 import android.app.Service
 
 import android.media.MediaPlayer
@@ -18,7 +17,7 @@ class MediaCatService : Service() {
     }
 
     override fun onCreate() {
-        //ambientMediaPlayer = MediaPlayer.create(this, R.raw.skidz)
+        ambientMediaPlayer = MediaPlayer.create(this, R.raw.lion)
         ambientMediaPlayer!!.isLooping = true
     }
 
