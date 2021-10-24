@@ -24,6 +24,9 @@ class BdActivity : AppCompatActivity() {
         binding.addCatButton.setOnClickListener {
             repo.insertCat(MyCatsDb("Simba"))
         }
+        binding.deleteCatButton.setOnClickListener {
+            repo.deleteCat(2)
+        }
     }
 
     private fun initProjectsRecycler(list: List<MyCatsDb>) {
