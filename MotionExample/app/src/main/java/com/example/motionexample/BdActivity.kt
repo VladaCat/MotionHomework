@@ -2,6 +2,7 @@ package com.example.motionexample
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.motionexample.databinding.ActivityBdBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -17,8 +18,7 @@ class BdActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_bd)
-       // repo = ProjectDbRepository(MyCatsDao())
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_bd)
         initProjectsRecycler(repo.getAllCats())
 
         binding.addCatButton.setOnClickListener {
@@ -30,6 +30,5 @@ class BdActivity : AppCompatActivity() {
         adapter = MyCatsDbAdapter(list)
         binding.catsRecycler.adapter = adapter
         binding.catsRecycler.layoutManager = LinearLayoutManager(this)
-
     }
 }
