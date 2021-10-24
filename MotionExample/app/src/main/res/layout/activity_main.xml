@@ -53,5 +53,26 @@
             android:onClick="click"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/send_message_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:onClick="sendMessage"
+            android:text="Send message"
+            app:layout_constraintEnd_toStartOf="@+id/stop_media_button"
+            app:layout_constraintStart_toEndOf="@+id/start_media_button"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/make_bd_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Make it beautiful"
+            app:layout_constraintBottom_toTopOf="@+id/start_drawing_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/send_message_button" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

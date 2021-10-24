@@ -1,19 +1,27 @@
 package com.example.motionexample
 
 import android.content.Intent
-import android.gesture.Gesture
-import android.gesture.GestureLibraries
-import android.gesture.GestureOverlayView
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.motionexample.databinding.ActivityMainBinding
-import androidx.databinding.DataBindingUtil
-import android.gesture.GestureLibrary
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import com.example.motionexample.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
+    val WHERE_MY_CAT_ACTION = "cat"
+    val ALARM_MESSAGE = "Give me my cat!"
+
+    fun sendMessage(view: View?) {
+        val intent = Intent()
+        intent.action = WHERE_MY_CAT_ACTION
+        intent.putExtra("cat", ALARM_MESSAGE)
+        intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES)
+        sendBroadcast(intent)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
@@ -38,6 +46,12 @@ class MainActivity : AppCompatActivity() {
         binding.stopMediaButton.setOnClickListener {
             val stopMediaIntent = Intent(this, MediaCatService::class.java)
             stopService(stopMediaIntent)
+        }
+
+        binding.makeBdButton.setOnClickListener {
+            val bdIntent = Intent(this, BdActivity::class.java)
+            startActivity(bdIntent)
+
         }
     }
 

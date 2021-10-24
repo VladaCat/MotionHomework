@@ -6,6 +6,7 @@ import android.view.View
 import androidx.databinding.DataBindingUtil
 import com.example.motionexample.databinding.ActivityHelloDrawerBinding
 
+
 class HelloDrawer : AppCompatActivity() {
     private lateinit var binding :ActivityHelloDrawerBinding
 
