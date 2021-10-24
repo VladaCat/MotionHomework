@@ -59,7 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:onClick="sendMessage"
+
             android:text="Send message"
             app:layout_constraintEnd_toStartOf="@+id/stop_media_button"
             app:layout_constraintStart_toEndOf="@+id/start_media_button"

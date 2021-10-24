@@ -1,26 +1,34 @@
 package com.example.motionexample
 
+import android.app.Notification
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.databinding.DataBindingUtil
 import com.example.motionexample.databinding.ActivityMainBinding
-import dagger.hilt.android.AndroidEntryPoint
 
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
+    companion object {
+        const val NOTIFICATION_ID = 101
+        const val CHANNEL_ID = "channelID"
+    }
     val WHERE_MY_CAT_ACTION = "cat"
     val ALARM_MESSAGE = "Give me my cat!"
+//    val CHANNEL_ID = "channelID"
+//    val NOTIFICATION_ID = 101
 
     fun sendMessage(view: View?) {
-        val intent = Intent()
-        intent.action = WHERE_MY_CAT_ACTION
-        intent.putExtra("cat", ALARM_MESSAGE)
-        intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES)
-        sendBroadcast(intent)
+ //       val intent = Intent()
+//        intent.action = WHERE_MY_CAT_ACTION
+//        intent.putExtra("cat", ALARM_MESSAGE)
+//        intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES)
+//        sendBroadcast(intent)
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,6 +61,30 @@ class MainActivity : AppCompatActivity() {
             startActivity(bdIntent)
 
         }
+
+        binding.sendMessageButton.setOnClickListener {
+            val intent = Intent()
+            intent.action = WHERE_MY_CAT_ACTION
+            intent.putExtra("cat", ALARM_MESSAGE)
+            sendBroadcast(intent)
+
+            // Создаём уведомление
+//        binding.sendMessageButton.setOnClickListener {
+//            val broadCastEx = NotificationCompat.Builder(this, CHANNEL_ID)
+//                .setSmallIcon(R.drawable.ic_cat)
+//                .setContentTitle("Notification")
+//                .setContentText(ALARM_MESSAGE)
+//                .setDefaults(Notification.DEFAULT_VIBRATE)
+//                .setAutoCancel(true)
+//                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+//
+//            with(NotificationManagerCompat.from(this)){
+//                notify(NOTIFICATION_ID, broadCastEx.build())
+//            }
+//        }
+        }
+
+
     }
 
     fun click(v: View) {
