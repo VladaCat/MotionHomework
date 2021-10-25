@@ -59,7 +59,11 @@ class MainActivity : AppCompatActivity() {
         binding.makeBdButton.setOnClickListener {
             val bdIntent = Intent(this, BdActivity::class.java)
             startActivity(bdIntent)
+        }
 
+        binding.movieButton.setOnClickListener {
+            val movieIntent = Intent(this, RetrofitActivity::class.java)
+            startActivity(movieIntent)
         }
 
         binding.sendMessageButton.setOnClickListener {

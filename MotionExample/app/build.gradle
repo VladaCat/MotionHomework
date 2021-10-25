@@ -39,6 +39,10 @@ android {
 
 dependencies {
 
+    implementation "com.squareup.moshi:moshi-kotlin:$version_moshi"
+    implementation "com.squareup.retrofit2:converter-moshi:$version_retrofit"
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
     def room_version = "2.3.0"
     annotationProcessor "androidx.room:room-compiler:$room_version"
     kapt("androidx.room:room-compiler:$room_version")

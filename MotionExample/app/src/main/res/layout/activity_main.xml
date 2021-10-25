@@ -74,5 +74,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/send_message_button" />
+
+        <Button
+            android:id="@+id/movie_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Let's watch movie"
+            app:layout_constraintBottom_toTopOf="@+id/start_drawing_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/make_bd_button" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
