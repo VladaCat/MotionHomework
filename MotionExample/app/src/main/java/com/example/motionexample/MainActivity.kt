@@ -2,8 +2,10 @@ package com.example.motionexample
 
 import android.app.Notification
 import android.content.Intent
+import android.content.IntentFilter
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
@@ -13,6 +15,7 @@ import com.example.motionexample.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private val receiverMessage = MessageReceiver()
 
     companion object {
         const val NOTIFICATION_ID = 101
@@ -67,10 +70,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.sendMessageButton.setOnClickListener {
-            val intent = Intent()
-            intent.action = WHERE_MY_CAT_ACTION
-            intent.putExtra("cat", ALARM_MESSAGE)
-            sendBroadcast(intent)
+            val filterIntent = IntentFilter()
+            filterIntent.addAction(Intent.ACTION_POWER_CONNECTED)
+            registerReceiver(receiverMessage, filterIntent)
+//            val intent = Intent()
+//            intent.action = WHERE_MY_CAT_ACTION
+//            intent.putExtra("cat", ALARM_MESSAGE)
+//            sendBroadcast(intent)
 
             // Создаём уведомление
 //        binding.sendMessageButton.setOnClickListener {

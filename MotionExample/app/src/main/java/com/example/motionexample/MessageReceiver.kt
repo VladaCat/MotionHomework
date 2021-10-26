@@ -8,8 +8,9 @@ import android.widget.Toast
 class MessageReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
-        Toast.makeText(context, "Обнаружено сообщение: " +
-                intent.getStringExtra("cat"),
-            Toast.LENGTH_LONG).show()
+        val mode = intent.getBooleanExtra("mode", true)
+        if(mode) {
+            Toast.makeText(context, Intent.ACTION_POWER_CONNECTED, Toast.LENGTH_LONG).show()
+        }
     }
 }

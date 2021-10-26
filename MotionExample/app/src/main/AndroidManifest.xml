@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.motionexample">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".MotionExampleApp"
@@ -18,14 +19,6 @@
             android:name=".BdActivity"
             android:exported="false" />
 
-        <receiver
-            android:name=".MessageReceiver"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="cat" />
-            </intent-filter>
-        </receiver>
 
         <service
             android:name=".MediaCatService"
